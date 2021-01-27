@@ -21,3 +21,4 @@ elif d == 0:
 
 else:
     print(f"For a = {a}, b = {b}, c= {c}, the equation a * x ** 2 + b * x + c = 0 has no solutions.")
+    
