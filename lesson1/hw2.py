@@ -1,4 +1,5 @@
 # a * x ** 2 + b * x + c = 0
+
 a = float(input("Enter value of a: " ))
 b = float(input("Enter value of b: " ))
 c = float(input("Enter value of c: " ))
@@ -20,5 +21,5 @@ elif d == 0:
     print(f"For a = {a}, b = {b}, c= {c}, the equation a * x ** 2 + b * x + c = 0 has only one solution: x = {x}.")
 
 else:
+
     print(f"For a = {a}, b = {b}, c= {c}, the equation a * x ** 2 + b * x + c = 0 has no solutions.")
-    
