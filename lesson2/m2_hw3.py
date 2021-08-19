@@ -1,6 +1,7 @@
 total = 0
 user_operator = None
 number = 0
+
 # operator_list = ['+', '-', '*', '/', ]
 
 while user_operator != '=':
@@ -31,13 +32,12 @@ while user_operator != '=':
 
     while user_operator != '=':
 
-        try:
-            
+        try:            
             number = input('Enter a number: ')
             numb_f = float(number)
             numb_i = int(numb_f // 1)
 
-            if numb_i != numb_f:
+            if numb_i != numb_f:                
                 number = float(number)
             
             else:
