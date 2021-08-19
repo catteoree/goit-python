@@ -4,6 +4,7 @@ words = []
 alphabet = tuple("abcdefghijklmnopqrstuvwxyz")
 
 start = 0
+
 """for idx, char in enumerate(text):
     if char.lower() not in alphabet:
         word = text[start:idx]
@@ -12,8 +13,10 @@ start = 0
         start = idx + 1"""
 
 for idx, char in enumerate(text):
+    
     if char.lower() not in alphabet:
         word = text[start:idx]
+
         if len(word) > 1: 
             words.append(word.strip())
         start = idx

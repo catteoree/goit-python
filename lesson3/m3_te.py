@@ -13,6 +13,7 @@ print(odd_numbers, '\n', even_numbers, '\n', three_numbers)
 numbers = [0, 1, 2, 3]
 first_three = numbers[0:3]
 re_numbes = numbers[::-1]
+
 print(first_three, '\n', re_numbes)
 
 products_list = ['Вертел', 'Курица', 'Соус', 'Сыр']
@@ -55,12 +56,15 @@ min_salary = 0
 min_salary_key = ""
 
 for min_salary_key, salary in salary_dict.items():
+
     if salary <= salary_dict['Dickens'] and salary <= salary_dict['Bonmarito'] and salary <= salary_dict['Isabalaev'] and salary <= salary_dict['Clinton']:
         salary_dict[min_salary_key] = int(salary * 124 / 100)
+
         print(salary_dict['Clinton'])
+
         min_salary = salary
+
     else:
         continue
-
 
 #salary_dict[min_salary_key]

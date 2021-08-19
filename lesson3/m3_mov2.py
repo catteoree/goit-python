@@ -1,4 +1,5 @@
 complex = 3.14 + 1j
+
 print(complex)
 print(complex.real)
 print(complex.imag)
@@ -23,6 +24,8 @@ print(bool(1))
 keys = [1, 2, 3]
 values = [4, 5, 6]
 d = {}
+
 for i, val in enumerate(keys):
     d[val] = values[i]
+    
 print(d)

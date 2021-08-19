@@ -5,8 +5,10 @@ char_set = set()
 punct_set = set()
 
 for char in text:
+    
     if char.lower() in alphabet:
         char_set.add(char)
+
     else:
         punct_set.add(char)
 

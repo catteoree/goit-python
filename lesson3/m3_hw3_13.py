@@ -6,8 +6,10 @@ not_proper_declaration = []
 statistic_flag = False
 
 for statistic in surnames_statistic_list:
+
     if statistic.find(surname_to_search) != -1:
         statistic_flag = True
+        
     else:
         continue
 
