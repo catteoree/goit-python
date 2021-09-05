@@ -2,20 +2,20 @@ from datetime import datetime, timedelta
 
 # input_datetime2 = input("Enter date and time in format: 'DD/MM/YYYY HH:MM': ")
 first_datetime = datetime.now()
-second_datetime = datetime.strptime("24/08/2021 00:00", "%d/%m/%Y %H:%M")
+second_datetime = datetime.strptime("30/08/2021 00:00", "%d/%m/%Y %H:%M")
 new_datetime = second_datetime - first_datetime
 print(new_datetime)
 datetime_2m = datetime.strptime("19/08/2021 06:00", "%d/%m/%Y %H:%M")
 datetime_3m = datetime.strptime("20/08/2021 02:00", "%d/%m/%Y %H:%M")
 datetime_4m = datetime.strptime("21/08/2021 14:00", "%d/%m/%Y %H:%M")
-datetime_5m = datetime.strptime("22/08/2021 03:00", "%d/%m/%Y %H:%M")
-datetime_6m = datetime.strptime("22/08/2021 14:00", "%d/%m/%Y %H:%M")
-datetime_7m = datetime.strptime("23/08/2021 01:00", "%d/%m/%Y %H:%M")
-datetime_8m = datetime.strptime("23/08/2021 12:00", "%d/%m/%Y %H:%M")
-datetime_9m = datetime.strptime("24/08/2021 01:00", "%d/%m/%Y %H:%M")
-datetime_10m = datetime.strptime("24/08/2021 12:00", "%d/%m/%Y %H:%M")
-datetime_11m = datetime.strptime("24/08/2021 23:00", "%d/%m/%Y %H:%M")
-datetime_12m = datetime.strptime("25/08/2021 14:00", "%d/%m/%Y %H:%M")
+datetime_5m = datetime.strptime("25/08/2021 06:00", "%d/%m/%Y %H:%M")
+datetime_6m = datetime.strptime("26/08/2021 00:00", "%d/%m/%Y %H:%M")
+datetime_7m = datetime.strptime("26/08/2021 22:00", "%d/%m/%Y %H:%M")
+datetime_8m = datetime.strptime("27/08/2021 16:00", "%d/%m/%Y %H:%M")
+datetime_9m = datetime.strptime("28/08/2021 10:00", "%d/%m/%Y %H:%M")
+datetime_10m = datetime.strptime("29/08/2021 04:00", "%d/%m/%Y %H:%M")
+datetime_11m = datetime.strptime("29/08/2021 22:00", "%d/%m/%Y %H:%M")
+datetime_12m = datetime.strptime("30/08/2021 16:00", "%d/%m/%Y %H:%M")
 
 new_datetime_2m = datetime_2m - first_datetime
 new_datetime_3m = datetime_3m - first_datetime

@@ -1,3 +1,6 @@
+import re
+
+
 # search in str
 
     # s = "Hi there!"
@@ -37,8 +40,6 @@
 
     # print("|{:<10}|{:*^20}|{:>10}|".format('left', 'center2', 'right'))  # |left      |**center**|     right|
 
-import re
-
 s = "I am 25 years old"
 age = re.search('\d+', s)
 print(age)  # <re.Match object; span=(5, 7), match='25'>
@@ -46,4 +47,3 @@ print(age)  # <re.Match object; span=(5, 7), match='25'>
 s = "I am 25 years old."
 age = re.search('\d+', s)
 print(age.group())  # 25
-
