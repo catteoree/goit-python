@@ -244,4 +244,3 @@ while True:
             result /= operand
         else:
             result //= operand
-

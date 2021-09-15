@@ -9,8 +9,8 @@ while True:
             print("You are adult.")
         break
     
-    except ValueError:
-        print(f"{age} is not a number.")
+    except ValueError as ve:
+        print(f"{age} is not a number. ({ve})")
 
     finally:
         print("===========================\n")

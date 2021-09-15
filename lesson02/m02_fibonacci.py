@@ -11,3 +11,4 @@ for i in range(0, 26):
     first = second
 
     print(f'result #{i} = {result}')
+    
