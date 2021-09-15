@@ -14,6 +14,7 @@
 # and	Логическое И
 # or	Логическое ИЛИ
 
+
 print(f'(3 + 4 >= 3) == True -> answer: {(3 + 4 >= 3) == True}')
 print(3 == True)
 print(7 >= 3 == True)
