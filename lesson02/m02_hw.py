@@ -1,3 +1,5 @@
+# 3
+
 total = 0
 user_operator = None
 number = 0
