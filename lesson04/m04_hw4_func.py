@@ -181,10 +181,10 @@ for user in persons:
 
 
 def game(terra, power):
-    print(terra) 
-    print(power)
+    print(f"terra: {terra}") 
+    print(f"power: {power}")
     len_terra = len(terra)
-    print(len_terra)
+    print(f"terra: {len_terra}")
 
     for i in range(len_terra):
         print(f'i = {i}')
@@ -200,6 +200,18 @@ def game(terra, power):
 
     return power
 
+
+def game(terra, power):
+    print(f"terra: {terra}") 
+    print(f"power: {power}")
+
+    for i in range(len(terra)):
+        for j in range(len(terra[i])):
+            if terra[i][j] <= power:
+                power += terra[i][j]
+            else:
+                break
+    return power  
 
 print(game([[1, 2, 5, 10], [2, 10, 2], [1, 3, 1]], 1))
 
@@ -242,4 +254,4 @@ def is_valid_pin_codes(pin_codes):
 
 print(is_valid_pin_codes(['1101', '9034', '0010']))
 
-from random import randint
+# from random import randint
