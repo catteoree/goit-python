@@ -8,18 +8,21 @@ new_datetime = second_datetime - first_datetime
 datetime_2m = datetime.strptime("19/08/2021 06:00", "%d/%m/%Y %H:%M")
 datetime_3m = datetime.strptime("20/08/2021 02:00", "%d/%m/%Y %H:%M")
 datetime_4m = datetime.strptime("21/08/2021 14:00", "%d/%m/%Y %H:%M")
-datetime_5m = datetime.strptime("03/10/2021 23:59", "%d/%m/%Y %H:%M")
-datetime_6m = datetime.strptime("11/10/2021 23:59", "%d/%m/%Y %H:%M")
-datetime_7m = datetime.strptime("17/10/2021 23:59", "%d/%m/%Y %H:%M")
-datetime_8m = datetime.strptime("25/10/2021 23:59", "%d/%m/%Y %H:%M")
-datetime_9m = datetime.strptime("29/10/2021 23:59", "%d/%m/%Y %H:%M")
-datetime_10m = datetime.strptime("04/11/2021 23:59", "%d/%m/%Y %H:%M")
-datetime_11m = datetime.strptime("12/11/2021 23:59", "%d/%m/%Y %H:%M")
-datetime_12m = datetime.strptime("20/11/2021 23:59", "%d/%m/%Y %H:%M")
+datetime_5m = datetime.strptime("30/09/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_6m = datetime.strptime("07/10/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_7m = datetime.strptime("14/10/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_8m = datetime.strptime("21/10/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_9m = datetime.strptime("28/10/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_10m = datetime.strptime("04/11/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_11m = datetime.strptime("11/11/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_12m = datetime.strptime("18/11/2021 18:00", "%d/%m/%Y %H:%M")
 
-writer_deadline_book001 = datetime.strptime("25/09/2021 12:00", "%d/%m/%Y %H:%M")
-writer_deadline_book002 = datetime.strptime("26/09/2021 12:00", "%d/%m/%Y %H:%M")
-writer_deadline_book01 = datetime.strptime("30/09/2021 12:00", "%d/%m/%Y %H:%M")
+writer_deadline_book001 = datetime.strptime("02/10/2021 18:00", "%d/%m/%Y %H:%M")
+writer_deadline_book002 = datetime.strptime("04/10/2021 18:00", "%d/%m/%Y %H:%M")
+writer_deadline_book01 = datetime.strptime("08/10/2021 18:00", "%d/%m/%Y %H:%M")
+writer_deadline_book02 = datetime.strptime("15/10/2021 18:00", "%d/%m/%Y %H:%M")
+writer_deadline_book03 = datetime.strptime("22/10/2021 18:00", "%d/%m/%Y %H:%M")
+writer_deadline_book04 = datetime.strptime("01/11/2021 18:00", "%d/%m/%Y %H:%M")
 
 new_datetime_2m = datetime_2m - first_datetime
 new_datetime_3m = datetime_3m - first_datetime
@@ -36,6 +39,9 @@ new_datetime_12m = datetime_12m - first_datetime
 new_writer_deadline_book001 = writer_deadline_book001 - first_datetime
 new_writer_deadline_book002 = writer_deadline_book002 - first_datetime
 new_writer_deadline_book01 = writer_deadline_book01 - first_datetime
+new_writer_deadline_book02 = writer_deadline_book02 - first_datetime
+new_writer_deadline_book03 = writer_deadline_book03 - first_datetime
+new_writer_deadline_book04 = writer_deadline_book04 - first_datetime
 
 hours = new_datetime.days * 24 + new_datetime.seconds / 60 / 60
 hours_2m = new_datetime_2m.days * 24 + new_datetime_2m.seconds / 3600
@@ -53,6 +59,9 @@ hours_12m = new_datetime_12m.days * 24 + new_datetime_12m.seconds / 3600
 hours_writer_deadline_book001 = new_writer_deadline_book001.days * 24 + new_writer_deadline_book001.seconds / 3600
 hours_writer_deadline_book002 = new_writer_deadline_book002.days * 24 + new_writer_deadline_book002.seconds / 3600
 hours_writer_deadline_book01 = new_writer_deadline_book01.days * 24 + new_writer_deadline_book01.seconds / 3600
+hours_writer_deadline_book02 = new_writer_deadline_book02.days * 24 + new_writer_deadline_book02.seconds / 3600
+hours_writer_deadline_book03 = new_writer_deadline_book03.days * 24 + new_writer_deadline_book03.seconds / 3600
+hours_writer_deadline_book04 = new_writer_deadline_book04.days * 24 + new_writer_deadline_book04.seconds / 3600
 
 print(f"Deadline for 2 module completed on {datetime_2m}.")
 print(f"Deadline for 3 module completed on {datetime_3m}.")
@@ -69,3 +78,6 @@ print(f"Deadline for 12 module in {hours_12m} ({new_datetime_12m}).")
 print(f"Deadline for novel 'Children of Five Stars' in {hours_writer_deadline_book001} ({new_writer_deadline_book001}).")
 print(f"Deadline for novel 'Lirika CatTeoRee' in {hours_writer_deadline_book002} ({new_writer_deadline_book002}).")
 print(f"Deadline for big novel 'Aezerlit' in {hours_writer_deadline_book01} ({new_writer_deadline_book01}).")
+print(f"Deadline for big novel 'Yul and Ursa' in {hours_writer_deadline_book02} ({new_writer_deadline_book02}).")
+print(f"Deadline for big novel 'Legend about Siyazeer' in {hours_writer_deadline_book03} ({new_writer_deadline_book03}).")
+print(f"Deadline for big novel 'Legend about White Nunda' in {hours_writer_deadline_book04} ({new_writer_deadline_book04}).")

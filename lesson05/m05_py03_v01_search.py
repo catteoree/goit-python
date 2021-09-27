@@ -1,6 +1,6 @@
 # Парсим url
 
-url = "https://www.google.com/search?q=Cat+and+dog&rlz=1C1GCEA_enUA926UA926&sxsrf=ALeKk03ymyJH0JQamjL3_4M9dakBcz2Tdw%3A1624472432354&ei=cHvTYMKbFe-vrgSu9YygDg&oq=Cat+and+dog&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyAggAMgIIADIICC4QxwEQrwEyAggAMgIIADIICC4QxwEQrwEyAggAMgIIADIICC4QxwEQrwE6BwgAEEcQsAM6BwgAELADEEM6CgguELADEMgDEEM6EAguEMcBEK8BELADEMgDEENKBQg4EgExSgQIQRgAUK9HWK9HYO9QaAFwAngAgAHOAYgBsgKSAQUwLjEuMZgBAKABAaoBB2d3cy13aXrIAQ3AAQE&sclient=gws-wiz&ved=0ahUKEwjCk5yyr67xAhXvl4sKHa46A-QQ4dUDCA4&uact=5"
+url = "https://www.google.com/search?q=Cat+and+dog&rlz=1C1GCEA_enUA926UA926&oq=Cat+and+dog&aqs=chrome..69i57.1332j0j15&sourceid=chrome&ie=UTF-8"
 _, query_search = url.split("?")
 
 print(f"||| query_search = {query_search} |||")
