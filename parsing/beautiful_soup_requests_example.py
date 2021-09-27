@@ -1,9 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
-bank_id = 1771062 #ID банка на сайте banki.ru
+url = 'https://librebook.me/rebirth_of_the_thief_who_roamed_the_world/vol1/1189'
+response2 = requests.get(url)
+soup = BeautifulSoup(response2.text, 'lxml')
 
-url = 'https://www.banki.ru/services/questions-answers/?id=%d&p=1' % (bank_id) # url страницы
-r = requests.get(url)
-with open('test.html', 'w') as output_file:
-    output_file.write(r.text)
+print(soup)
