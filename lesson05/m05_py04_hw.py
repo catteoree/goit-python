@@ -408,13 +408,33 @@
 
 
 # 14
+    # import re
+
+
+    # def find_all_phones(text):
+    #     result = re.findall(r"\+380\(\d\d\)\d{3}\-\d{1}\-\d{3}|\+380\(\d\d\)\d{3}\-\d{2}\-\d{2}", text)
+    #     return result
+
+    # if __name__ == "__main__":
+    #     # ['+380(67)777-7-771', '+380(67)777-77-77', '+380(67)777-77-78']
+    #     print(find_all_phones('Irma +380(67)777-7-771 second +380(67)777-77-77 aloha a@test.com abc111@test.com.net +380(67)111-777-777+380(67)777-77-787'))
+
+
+# 15
+# Ожидалось, что функция find_all_links при получении параметра 
+# 'The main search site in the world is https://www.google.com '\ 
+# 'The main social network for people in the world is https://www.facebook.com '\
+# 'But programmers have their own social network http://github.com '\
+# 'There they share their code. some url to check https://www..facebook.com www.facebook.com' 
+# вернет следующий список 
+# ['https://www.google.com', 'https://www.facebook.com', 'http://github.com']
 import re
 
 
-def find_all_phones(text):
-    result = re.findall(r"\+380\(\d\d\)\d{3}\-\d{1}\-\d{3}|\+380\(\d\d\)\d{3}\-\d{2}\-\d{2}", text)
+def find_all_links(text):
+    print(text)
+    result = []
+    iterator = re.finditer(r"http(s)?://(www\.)?\w+(\-)?\w+\.\w+(\.\w)?", text)
+    for match in iterator:
+        result.append(match.group())
     return result
-
-if __name__ == "__main__":
-    # ['+380(67)777-7-771', '+380(67)777-77-77', '+380(67)777-77-78']
-    print(find_all_phones('Irma +380(67)777-7-771 second +380(67)777-77-77 aloha a@test.com abc111@test.com.net +380(67)111-777-777+380(67)777-77-787'))
