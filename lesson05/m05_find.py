@@ -14,3 +14,4 @@ for file in files:
         continue
     suffix = file[idx+1:]
     print(file, suffix, idx)
+    
