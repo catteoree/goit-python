@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 
+
 # input_datetime2 = input("Enter date and time in format: 'DD/MM/YYYY HH:MM': ")
 first_datetime = datetime.now()
 second_datetime = datetime.strptime("30/08/2021 00:00", "%d/%m/%Y %H:%M")
@@ -8,21 +9,21 @@ new_datetime = second_datetime - first_datetime
 datetime_2m = datetime.strptime("19/08/2021 06:00", "%d/%m/%Y %H:%M")
 datetime_3m = datetime.strptime("20/08/2021 02:00", "%d/%m/%Y %H:%M")
 datetime_4m = datetime.strptime("21/08/2021 14:00", "%d/%m/%Y %H:%M")
-datetime_5m = datetime.strptime("30/09/2021 18:00", "%d/%m/%Y %H:%M")
-datetime_6m = datetime.strptime("07/10/2021 18:00", "%d/%m/%Y %H:%M")
-datetime_7m = datetime.strptime("14/10/2021 18:00", "%d/%m/%Y %H:%M")
-datetime_8m = datetime.strptime("21/10/2021 18:00", "%d/%m/%Y %H:%M")
-datetime_9m = datetime.strptime("28/10/2021 18:00", "%d/%m/%Y %H:%M")
-datetime_10m = datetime.strptime("04/11/2021 18:00", "%d/%m/%Y %H:%M")
-datetime_11m = datetime.strptime("11/11/2021 18:00", "%d/%m/%Y %H:%M")
-datetime_12m = datetime.strptime("18/11/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_5m = datetime.strptime("30/09/2021 21:00", "%d/%m/%Y %H:%M")
+datetime_6m = datetime.strptime("08/10/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_7m = datetime.strptime("15/10/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_8m = datetime.strptime("22/10/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_9m = datetime.strptime("29/10/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_10m = datetime.strptime("05/11/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_11m = datetime.strptime("12/11/2021 18:00", "%d/%m/%Y %H:%M")
+datetime_12m = datetime.strptime("19/11/2021 18:00", "%d/%m/%Y %H:%M")
 
-writer_deadline_book001 = datetime.strptime("02/10/2021 18:00", "%d/%m/%Y %H:%M")
-writer_deadline_book002 = datetime.strptime("04/10/2021 18:00", "%d/%m/%Y %H:%M")
-writer_deadline_book01 = datetime.strptime("08/10/2021 18:00", "%d/%m/%Y %H:%M")
-writer_deadline_book02 = datetime.strptime("15/10/2021 18:00", "%d/%m/%Y %H:%M")
-writer_deadline_book03 = datetime.strptime("22/10/2021 18:00", "%d/%m/%Y %H:%M")
-writer_deadline_book04 = datetime.strptime("01/11/2021 18:00", "%d/%m/%Y %H:%M")
+writer_deadline_book001 = datetime.strptime("09/10/2021 18:00", "%d/%m/%Y %H:%M")
+writer_deadline_book002 = datetime.strptime("10/10/2021 18:00", "%d/%m/%Y %H:%M")
+writer_deadline_book01 = datetime.strptime("14/10/2021 18:00", "%d/%m/%Y %H:%M")
+writer_deadline_book02 = datetime.strptime("24/10/2021 18:00", "%d/%m/%Y %H:%M")
+writer_deadline_book03 = datetime.strptime("04/11/2021 18:00", "%d/%m/%Y %H:%M")
+writer_deadline_book04 = datetime.strptime("14/11/2021 18:00", "%d/%m/%Y %H:%M")
 
 new_datetime_2m = datetime_2m - first_datetime
 new_datetime_3m = datetime_3m - first_datetime
@@ -66,7 +67,7 @@ hours_writer_deadline_book04 = new_writer_deadline_book04.days * 24 + new_writer
 print(f"Deadline for 2 module completed on {datetime_2m}.")
 print(f"Deadline for 3 module completed on {datetime_3m}.")
 print(f"Deadline for 4 module completed on {datetime_4m}.")
-print(f"Deadline for 5 module in {hours_5m} ({new_datetime_5m}).")
+print(f"Deadline for 5 module completed on {datetime_5m}.")
 print(f"Deadline for 6 module in {hours_6m} ({new_datetime_6m}).")
 print(f"Deadline for 7 module in {hours_7m} ({new_datetime_7m}).")
 print(f"Deadline for 8 module in {hours_8m} ({new_datetime_8m}).")
