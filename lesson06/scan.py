@@ -2,22 +2,38 @@ import sys
 from pathlib import Path
 
 
-JPEG_IMAGES = []
-JPG_IMAGES = []
-PNG_IMAGES = []
-SVG_IMAGES = []
+IMAGES = []
+VIDEO = []
+AUDIO = []
+DOCUMENTS = []
+ARCHIVES = []
 OTHERS = []
-ARCH = []
 FOLDERS = []
 UNKNOWN = set()
 EXTENSION = set()
 
 REGISTERED_EXTENSIONS = {
-    "JPEG": JPEG_IMAGES,
-    "JPG": JPG_IMAGES,
-    "PNG": PNG_IMAGES,
-    "SVG": SVG_IMAGES,
-    "ZIP": ARCH
+    "JPEG": IMAGES,
+    "JPG": IMAGES,
+    "PNG": IMAGES,
+    "SVG": IMAGES,
+    "AVI": VIDEO,
+    "MP4": VIDEO,
+    "MOV": VIDEO,
+    "MKV": VIDEO,
+    "DOC": DOCUMENTS,
+    "DOCX": DOCUMENTS,
+    "TXT": DOCUMENTS,
+    "PDF": DOCUMENTS,
+    "XLSX": DOCUMENTS,
+    "PPTX": DOCUMENTS,
+    "MP3": AUDIO,
+    "OGG": AUDIO,
+    "WAV": AUDIO,
+    "AMR": AUDIO,
+    "TAR": ARCHIVES,
+    "GZ": ARCHIVES,
+    "ZIP": ARCHIVES
 }
 
 
@@ -28,7 +44,7 @@ def get_extension(file_name: str):
 def scan(folder: Path):
     for item in folder.iterdir():
         if item.is_dir():
-            if item.name not in ("JPEG", "JPG", "SVG", "PNG", "OTHERS", "ARCH"):
+            if item.name not in ("images", "audio", "video", "documents", "archives", "others"):
                 FOLDERS.append(item)
                 scan(item)
             continue
@@ -54,12 +70,13 @@ if __name__ == "__main__":
 
     search_folder = Path(scan_path)
     scan(search_folder)
-    print(f"Images jpeg: {JPEG_IMAGES}")
-    print(f"Images jpg: {JPG_IMAGES}")
-    print(f"Images png: {PNG_IMAGES}")
-    print(f"Images svg: {SVG_IMAGES}")
-    print(f"Archives: {ARCH}")
+    print(f"Images: {IMAGES}")
+    print(f"Video: {VIDEO}")
+    print(f"Audio: {AUDIO}")
+    print(f"Documents: {DOCUMENTS}")
+    print(f"Archives: {ARCHIVES}")
     print(f"Unknown files: {OTHERS}")
+    print(f"Folders: {FOLDERS}")
     print(f"There are types of file: {EXTENSION}")
     print(f"Unknown types of file: {UNKNOWN}")
 

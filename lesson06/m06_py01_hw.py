@@ -203,50 +203,29 @@ def write_to_bin(path, user_info):
 
 
 # 10
-import shutil
-from pathlib import Path
+    # import shutil
 
 
-def create_archive(path, file_name, employee_residence):
-    print(path)
-    print(file_name)
-    print(employee_residence)
+    # def create_archive(path, file_name, employee_residence):
+        
+    #     for employee, residence in employee_residence.items():
+    #         string = f"{employee} {residence}\n"
+    #         string = string.encode("utf-8")
 
-    str_employees = ""
+    #         with open(f'{path}/{file_name}', "wb") as bf:
+    #             bf.write(string)
+            
+    #     archive = shutil.make_archive('backup', 'zip', path)
 
-    for name, residence in employee_residence.items():
-        str_employees += f"{name} {residence}\n"
-    
-    str_employees = str_employees.encode("utf-8")
-    print(str_employees)
-
-    with open(path / file_name, "wb") as fb:
-        fb.write(str_employees.encode())
-    
-    with open(path / file_name, "rb") as f:
-        print(f.read().decode("utf-8"))
-
-    # with open(f"{path}/{file_name}", "wb") as bf:
-    #     bf.write(str_employees)
-
-    archive_name = shutil.make_archive('backup', 'zip', path)
-    print(str(archive_name))
-
-    return str(archive_name)
-    # Code output:
-    #     /folder
-    #     file.bin
-    #     {'Michael': 'Canada', 'John': 'USA', 'Liza': 'Australia'}
-    #     [b'Michael Canada', b'John USA', b'Liza Australia']
-    #     /folder/backup.zip
-    
-
-
+    #     return archive
 
 
 # 11
+    # import shutil
 
 
-def func():
-    pass
+    # def unpack(archive_path, path_to_unpack):
+    #     shutil.unpack_archive(archive_path, path_to_unpack)
+
+    #     # /folder, /folder1
 

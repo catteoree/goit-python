@@ -260,4 +260,56 @@ def get_credentials_users(path):
     return list_str_for_bin
 
 
-# 
+# 12
+    # import base64
+
+
+    # def encode_data_to_base64(data: list):
+    #     list_passwords = []
+
+    #     for password in data:
+    #         password_bytes = password.encode("utf-8")
+    #         base64_password_bytes = base64.b64encode(password_bytes)
+    #         utf_base64_password_bytes = base64_password_bytes.decode("utf-8")
+    #         list_passwords.append(utf_base64_password_bytes)
+
+    #     return list_passwords
+
+
+    # if __name__ == "__main__":
+    #     print(encode_data_to_base64(['andry:uyro18890D', 'steve:oppjM13LL9e']))
+
+
+# 13
+    # import shutil
+
+
+    # def create_backup(path, file_name, employee_residence: dict):
+        
+    #     for employee, residence in employee_residence.items():
+    #         string = f"{employee} {residence}\n"
+    #         string = string.encode("utf-8")
+
+    #         with open(f'{path}/{file_name}', "wb") as bf:
+    #             bf.write(string)
+            
+    #     archive = shutil.make_archive('backup_folder', 'zip', path)
+
+    #     return archive
+
+
+    # if __name__ == "__main__":
+    #     # folder, file.bin, {'Michael': 'Canada', 'John': 'USA', 'Liza': 'Australia'}
+    #     print(create_backup('lesson06/folder', 'file.bin', {'Michael': 'Canada', 'John': 'USA', 'Liza': 'Australia'}))
+
+
+# 14
+
+
+    # import shutil
+
+
+    # def unpack(archive_path, path_to_unpack):
+    #     shutil.unpack_archive(archive_path, path_to_unpack)
+
+    #     # /folder, /folder1

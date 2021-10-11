@@ -1,8 +1,9 @@
 import re
 
+
 CYRILLIC_SYMBOLS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ‎"
-TRANSLATION = ("a", "b", "v", "g", "d", "e", "e", "j", "z", "i", "j", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", 
-               "f", "h", "ts", "ch", "sh", "sch", "", "y", "e", "u", "ja")
+TRANSLATION = ("a", "b", "v", "h", "d", "e", "e", "zh", "z", "i", "i", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", 
+               "f", "kh", "ts", "ch", "sh", "shch", "ie", "y", "", "e", "iu", "ia", "ie", "i", "i", "g")
 
 TRANS = {}
 
