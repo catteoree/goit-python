@@ -5,8 +5,6 @@ import shutil
 import os
 
 
-# NORMALIZE START
-
 CYRILLIC_SYMBOLS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ‎"
 TRANSLATION = ("a", "b", "v", "h", "d", "e", "e", "zh", "z", "i", "i", "k", "l", "m", 
                "n", "o", "p", "r", "s", "t", "u", "f", "kh", "ts", "ch", "sh", 
@@ -23,11 +21,6 @@ def normalize(name: str):
     trl_name = name.translate(TRANS)
     trl_name = re.sub(r"\W", "_", trl_name)
     return trl_name
-
-
-# NORMALIZE END
-
-# SCAN START MAKING ITERATORS
 
 
 IMAGES = []
@@ -64,19 +57,27 @@ REGISTERED_EXTENSIONS = {
     "ZIP": ARCHIVES
 }
 
+SPECIAL_FOLDERS = ("images", "audio", "video", "documents", "others", "archives")
+SPECIAL_LISTS = (IMAGES, AUDIO, VIDEO, DOCUMENTS, OTHERS, ARCHIVES)
 
-def get_extension(file_name: str):
-    return Path(file_name).suffix[1:].upper()
+
+def get_extension(file: str, name=""):
+    path_file = Path(file)
+
+    if name:
+        return path_file.suffix[1:].upper()
+    else:
+        return path_file.suffix
 
 
 def scan(folder: Path):
     for item in folder.iterdir():
         if item.is_dir():
-            if item.name not in ("images", "audio", "video", "documents", "archives", "others"):
+            if item.name not in SPECIAL_FOLDERS:
                 FOLDERS.append(item)
                 scan(item)
             continue
-        extetension = get_extension(item.name)
+        extetension = get_extension(item.name, "bigname")
         new_name = folder / item.name
         if not extetension:
             OTHERS.append(new_name)
@@ -90,88 +91,61 @@ def scan(folder: Path):
                 OTHERS.append(new_name)
 
 
-# SCAN END
-
-# SORT START
-
-
 def handle(file: Path, root_folder: Path, dir_name: str):
     target_folder = root_folder / dir_name
-    target_folder.mkdir(exist_ok=True) # create folder
+    target_folder.mkdir(exist_ok=True)
 
-    ext = Path(file).suffix
+    ext = get_extension(file)
     new_name = normalize(file.name.replace(ext, "")) + ext
     
-    file.replace(target_folder / new_name) # rename (replace) file
+    file.replace(target_folder / new_name)
 
 
 def handle_archive(file: Path, root_folder: Path, dir_name: str):
     target_folder = root_folder / dir_name
-    target_folder.mkdir(exist_ok=True) # create folder archives
+    target_folder.mkdir(exist_ok=True)
 
-    ext = Path(file).suffix
+    ext = get_extension(file)
     folder_for_archive = normalize(file.name.replace(ext, ""))
 
     archive_folder = target_folder / folder_for_archive
-    archive_folder.mkdir(exist_ok=True) # create folder archives/name_archive
+    archive_folder.mkdir(exist_ok=True)
 
     try:
         shutil.unpack_archive(str(file.resolve()), str(archive_folder.resolve()))
     except shutil.ReadError:
-        archive_folder.rmdir() # remove directory 
+        archive_folder.rmdir()
         return None
-    file.unlink() # remove file
+    file.unlink()
 
 
 def handle_folder(folder: Path):
     try:
-        # print(f"Try to remove {folder}\n")
-        # print(f"Directories in start: {FOLDERS}, counter of dirs: {len(FOLDERS)}\n")
         if not os.listdir(folder):
             folder.rmdir()
-            # print(f"Successful remove {folder}\n")
-            # scan.FOLDERS.remove(folder)
         else:
             for item in folder.iterdir():
                 handle_folder(item)
             
             folder.rmdir()
-            # print(f"Successful remove {folder}\n")
-            # scan.FOLDERS.remove(folder)
             
     except OSError:
         print(f"{folder} has already been deleted.")
-    
-    # finally:
-    #     print(f"Directories in finish: {FOLDERS}, counter of dirs: {len(FOLDERS)}\n")
 
 
 def main(folder):
     scan(folder)
 
-    for file in IMAGES:
-        handle(file, folder, "images")
-
-    for file in AUDIO:
-        handle(file, folder, "audio")
-
-    for file in DOCUMENTS:
-        handle(file, folder, "documents")
-
-    for file in VIDEO:
-        handle(file, folder, "video")
-
-    for file in ARCHIVES:
-        handle_archive(file, folder, "archives")
-
-    for file in OTHERS:
-        handle(file, folder, "others")
-
+    for file_list, special_folder in zip(SPECIAL_LISTS, SPECIAL_FOLDERS):
+    
+        for file in file_list:
+            if special_folder == "archives":
+                handle_archive(file, folder, "archives")
+            else:
+                handle(file, folder, special_folder)
+                
     for folder in FOLDERS:
         handle_folder(folder)
-
-
-# SORT END
 
 
 if __name__ == "__main__":
