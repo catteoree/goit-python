@@ -1,12 +1,15 @@
 def is_valid_pin_codes(pin_codes):
     answer = 0
 
-    if len(pin_codes) == len(set(pin_codes)):
+    if pin_codes and len(pin_codes) == len(set(pin_codes)):
 
         for pin_code in pin_codes:
 
             if pin_code.isdigit() and len(pin_code) == 4:
                 answer += 1
+    
+    else:
+        return False
 
     return answer == len(set(pin_codes))
 
