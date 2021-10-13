@@ -22,5 +22,6 @@ if __name__ == "__main__":
     print(f"False : {is_valid_pin_codes(['111', '9034', '0010'])}")
     print(f"False : {is_valid_pin_codes(['1101', '0a10', '0010'])}")
     print(f"False : {is_valid_pin_codes(['11a1', '0010', '001a'])}")
+    print(f"False : {is_valid_pin_codes([])}")
     print(f"{'001a'.isdigit()}")
 
