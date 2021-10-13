@@ -1,13 +1,13 @@
-import m07_short_v01
+import m07_short_v01 as m07
 
 
-m07_short_v01.a_func()
-m07_short_v01.b_func()
+m07.a_func()
+m07.b_func()
 
 
-# import m07_short_v01
+# import m07_short_v01 as m07
 
 
-# m07_short_v01.a.b_func()
+# m07.a.b_func()
 
-# m07_short_v01.a.a_func()
+# m07.a.a_func()
