@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_namespace_packages
 
 setup(name='useful',
       version='1',
@@ -7,7 +7,6 @@ setup(name='useful',
       author='Perederko Iryna',
       author_email='catteoree@gmail.com',
       license='MIT',
-      packages=['useful'],
-      install_requires=['markdown'],
-      entry_points={'console_scripts': ['helloworld = useful.some_code:hello_world']}
+      packages=find_namespace_packages(),
+      install_requires=['markdown']
       )
