@@ -1,9 +1,8 @@
 import collections
-from typing import List
 
 
 Person = collections.namedtuple('Person', ['name', 'last_name', 'age', 'birth_place', 'post_index'])
-person = Person('Mick', 'Nitch', 35, 'Boston', '01146')
+person = Person('Mick', 'Snitch', 35, 'Boston', '01146')
 
 print(person.name)
 print(person.post_index)
@@ -63,8 +62,8 @@ print(d.pop())
 print(d.popleft())
 print(d)
 
-maxlen_5 = collections.deque(maxlen=5)
+max_len_5 = collections.deque(maxlen=5)
 for i in range(10):
-    maxlen_5.append(i)
+    max_len_5.append(i)
 
-print(maxlen_5)
+print(max_len_5)
