@@ -13,13 +13,13 @@ print(person[3])
 
 student_marks = [4, 2, 4, 6, 7, 4, 2, 3, 4, 5, 6, 6, 7, 1, 1, 1, 3, 5]
 
-    # mark_counts = {}
-    # for mark in student_marks:
-    #     if mark in mark_counts:
-    #         mark_counts[mark] += 1
-    #     else:
-    #         mark_counts[mark] = 1
-    # print(mark_counts)
+# mark_counts = {}
+# for mark in student_marks:
+#     if mark in mark_counts:
+#         mark_counts[mark] += 1
+#     else:
+#         mark_counts[mark] = 1
+# print(mark_counts)
 
 mark_counts = collections.Counter(student_marks)
 print(mark_counts)
@@ -36,12 +36,12 @@ print(c)
 # defaultdict
 
 words = ['apple', 'zoo', 'lion', 'lama', 'bear', 'bet', 'wolf', 'appendix']
-    # grouped_words = {}
+# grouped_words = {}
 
-    # for word in words:
-    #     char = word[0]
-    #     if char not in grouped_words:
-    #         grouped_words[char] = []
+# for word in words:
+#     char = word[0]
+#     if char not in grouped_words:
+#         grouped_words[char] = []
 
 grouped_words = collections.defaultdict(list)
 
@@ -67,3 +67,4 @@ for i in range(10):
     max_len_5.append(i)
 
 print(max_len_5)
+
