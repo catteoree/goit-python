@@ -148,7 +148,7 @@ def main(folder):
         handle_folder(folder)
 
 
-if __name__ == "__main__":
+def clean():
     scan_path = sys.argv[1]
     print(f"Start in folder with name {scan_path}, its path:")
 
@@ -156,3 +156,8 @@ if __name__ == "__main__":
     print(sort_folder.resolve())
 
     main(sort_folder.resolve())
+
+
+if __name__ == "__main__":
+
+    clean()
