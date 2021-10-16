@@ -7,10 +7,14 @@ def main():
     current_date = datetime.now()
     user_entered_date = user_entered_date.replace(year=current_date.year)
     if current_date > user_entered_date:
-        print(f'{current_date - user_entered_date} days left.')
-    else:
-        user_entered_date = user_entered_date.replace(year=current_date.year+1)
-        print(f'{user_entered_date - current_date} days left.')
+        user_entered_date = user_entered_date.replace(year=current_date.year + 1)
+
+    target_date_string = datetime.strftime(user_entered_date, '%d %B')
+
+    delta = user_entered_date - current_date
+    print(f'{delta.days} days left till {target_date_string}.')
+    print(f'{delta.seconds} seconds left till {target_date_string}.')
+
 
 if __name__ == "__main__":
     main()
