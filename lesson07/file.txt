@@ -1,0 +1,2 @@
+Big chicken:chicken,pita,mayonnaise,ketchup,parsley
+small lamb:lamb,pita,mayonnaise,ketchup,parsley

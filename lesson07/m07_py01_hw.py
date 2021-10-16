@@ -129,6 +129,7 @@ def decode(data):
         return list(data[0] * data[1]) + decode(data[2:])
 
 
+# 8
 def encode(data):
     print(data)
     if not data:
