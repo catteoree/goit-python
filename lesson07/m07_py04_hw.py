@@ -304,6 +304,7 @@ def encode(data):
         new_data += [alpha_count]
         return new_data + encode(data[alpha_count:])
 
+
 # if __name__ == "__main__":
 # print(all_sub_lists([4, 6, 1, 3, 0, 7, 8, 9, 2, 5]))
 # print(all_sub_lists([4, 6, 1, 3, 0]))
