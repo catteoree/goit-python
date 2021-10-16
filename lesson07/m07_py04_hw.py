@@ -141,16 +141,16 @@ def all_sub_lists(data):
     new_data = []
 
     while len_count:
-        if not data_len-len_count:
+        if not data_len - len_count:
             new_data += [[]]
             len_count -= 1
-        elif data_len-len_count == 1:
+        elif data_len - len_count == 1:
             for i in range(data_len):
                 new_data += [[data[i]]]
             len_count -= 1
         else:
             list_len = data_len - len_count
-            for i in range(len_count+1):
+            for i in range(len_count + 1):
                 new_data += [data[i:i + list_len]]
             len_count -= 1
 
@@ -171,10 +171,8 @@ def make_request(keys, values):
     return request_dict
 
 
-
 # 11
 def sequence_buttons(string: str):
-
     ALL_SYMBOLS = "0123456789.,?!: abcdefghijklmnopqrstuvwxyz"
     BUTTONS = "0123456789"
     SYMBOLS = [" ", ".,?!:", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
@@ -263,7 +261,6 @@ def to_indexed(start_file, end_file):
 
 # 15
 def flatten(data):
-
     if not data:
         return data
 
@@ -307,19 +304,17 @@ def encode(data):
         new_data += [alpha_count]
         return new_data + encode(data[alpha_count:])
 
+# if __name__ == "__main__":
+# print(all_sub_lists([4, 6, 1, 3, 0, 7, 8, 9, 2, 5]))
+# print(all_sub_lists([4, 6, 1, 3, 0]))
+# print(all_sub_lists([4, 6, 1, 3]))
+# [[], [4], [6], [1], [3], [4, 6], [6, 1], [1, 3], [4, 6, 1], [6, 1, 3], [4, 6, 1, 3]]
 
-if __name__ == "__main__":
-    # print(all_sub_lists([4, 6, 1, 3, 0, 7, 8, 9, 2, 5]))
-    # print(all_sub_lists([4, 6, 1, 3, 0]))
-    # print(all_sub_lists([4, 6, 1, 3]))
-    # [[], [4], [6], [1], [3], [4, 6], [6, 1], [1, 3], [4, 6, 1], [6, 1, 3], [4, 6, 1, 3]]
-
-    # "44444084433777331111"
-    # import string
-    # string.ascii_uppercase
-    # 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    # string.ascii_lowercase
-    # 'abcdefghijklmnopqrstuvwxyz'
-    # string.ascii_letters
-    # 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    print(file_operations(['John courier\n', 'Pipe doc\n', 'Dan courier\n']))
+# "44444084433777331111"
+# import string
+# string.ascii_uppercase
+# 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+# string.ascii_lowercase
+# 'abcdefghijklmnopqrstuvwxyz'
+# string.ascii_letters
+# 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
