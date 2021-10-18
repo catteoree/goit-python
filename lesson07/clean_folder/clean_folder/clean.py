@@ -13,7 +13,7 @@ TRANS = {}
 
 for cs, trl in zip(CYRILLIC_SYMBOLS, TRANSLATION):
     TRANS[ord(cs)] = trl
-    TRANS[ord(cs.upper())] = trl.upper()
+    TRANS[ord(cs.upper())] = trl.capitalize()
 
 
 def normalize(name: str):
