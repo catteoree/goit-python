@@ -4,7 +4,7 @@ from pathlib import Path
 import shutil
 import os
 
-CYRILLIC_SYMBOLS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ‎"
+CYRILLIC_SYMBOLS = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяєіїґ"
 TRANSLATION = ("a", "b", "v", "h", "d", "e", "e", "zh", "z", "i", "i", "k", "l", "m",
                "n", "o", "p", "r", "s", "t", "u", "f", "kh", "ts", "ch", "sh",
                "shch", "ie", "y", "", "e", "iu", "ia", "ie", "i", "i", "g")
