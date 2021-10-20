@@ -104,18 +104,54 @@
 # 7
 
 
-
 # 8
-
+# from collections import Counter
+#
+#
+# def get_count_visits_from_ip(ips):
+#     return Counter(ips)
+#
+#
+# def get_frequent_visit_from_ip(ips):
+#     l = get_count_visits_from_ip(ips).most_common(1)
+#     return l[0]
 
 
 # 9
-
+# from collections import deque
+#
+# MAX_LEN = 3
+#
+# lifo = deque(maxlen=MAX_LEN)
+#
+#
+# def push(element):
+#     lifo.appendleft(element)
+#
+#
+# def pop():
+#     return lifo.popleft()
 
 
 # 10
+from collections import deque
+
+MAX_LEN = 3
+
+fifo = deque(maxlen=MAX_LEN)
 
 
+def push(element):
+    fifo.append(element)
 
-# if __name__ == "__main__":
-#     print(get_numbers_ticket(1, 49, 6))
+
+def pop():
+    return fifo.popleft()
+
+
+if __name__ == "__main__":
+    # print(convert_list([Cat("Mick", 5, "Sara"), Cat("Barsik", 7, "Olga"), Cat("Simon", 3, "Yura")]))
+    # print(convert_list([{'nickname': 'Mick', 'age': 5, 'owner': 'Sara'},
+    #                     {'nickname': 'Barsik', 'age': 7, 'owner': 'Olga'},
+    #                     {'nickname': 'Simon', 'age': 3, 'owner': 'Yura'}]))
+    print(fifo)
