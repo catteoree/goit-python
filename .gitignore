@@ -1,8 +1,12 @@
+/test/
+/.idea/
+/venv/
 /lesson07/venv07/
 /lesson07/.idea/
 /lesson07/clean_folder/clean_folder.egg-info/
 /lesson07/clean_folder/build/
 /lesson08/.idea/
-/test/
-/.idea/
-/venv/
+/lesson09/.idea/
+/lesson10/.idea/
+/lesson11/.idea/
+/lesson12/.idea/

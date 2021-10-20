@@ -42,12 +42,8 @@ def congratulate(users: list):
 
         if week_tuple[1] <= new_date <= week_tuple[2]:
             if new_date.weekday() >= 5 or not new_date.weekday():
-                if "Monday" not in week_dictionaries:
-                    week_dictionaries.update({"Monday": []})
                 week_dictionaries["Monday"] += [name]
             else:
-                if new_date.strftime('%A') not in week_dictionaries:
-                    week_dictionaries.update({new_date.strftime('%A'): []})
                 week_dictionaries[new_date.strftime('%A')] += [name]
 
     congratulation_str = ""
