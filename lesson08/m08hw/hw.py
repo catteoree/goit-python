@@ -64,15 +64,15 @@ def congratulate(users: list):
 
 if __name__ == "__main__":
     choiced_date = choice_date(False)
-    users = [{'name': 'Masato', 'birthday': datetime(1972, 10, 16, 0, 0)},
-             {'name': 'Veta', 'birthday': datetime(1973, 10, 13, 0, 0)},
-             {'name': 'Azamat', 'birthday': datetime(1999, 10, 14, 0, 0)},
-             {'name': 'Katsuo', 'birthday': datetime(1997, 10, 15, 0, 0)},
-             {'name': 'Dzheremi', 'birthday': datetime(1997, 10, 18, 0, 0)},
-             {'name': 'Shamil', 'birthday': datetime(1964, 10, 17, 0, 0)},
-             {'name': 'Kondrat', 'birthday': datetime(1940, 10, 12, 0, 0)},
-             {'name': 'Avdotia', 'birthday': datetime(1953, 10, 11, 0, 0)},
-             {'name': 'Radoslav', 'birthday': datetime(1988, 10, 19, 0, 0)},
-             {'name': 'Alena', 'birthday': datetime(1950, 10, 19, 0, 0)}
+    users = [{'name': 'Masato', 'birthday': datetime(1972, 10, 26, 0, 0)},
+             {'name': 'Veta', 'birthday': datetime(1973, 10, 23, 0, 0)},
+             {'name': 'Azamat', 'birthday': datetime(1999, 10, 24, 0, 0)},
+             {'name': 'Katsuo', 'birthday': datetime(1997, 10, 25, 0, 0)},
+             {'name': 'Dzheremi', 'birthday': datetime(1997, 10, 28, 0, 0)},
+             {'name': 'Shamil', 'birthday': datetime(1964, 10, 27, 0, 0)},
+             {'name': 'Kondrat', 'birthday': datetime(1940, 10, 22, 0, 0)},
+             {'name': 'Avdotia', 'birthday': datetime(1953, 10, 21, 0, 0)},
+             {'name': 'Radoslav', 'birthday': datetime(1988, 10, 29, 0, 0)},
+             {'name': 'Alena', 'birthday': datetime(1950, 10, 29, 0, 0)}
              ]
     congratulate(users)
