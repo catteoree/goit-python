@@ -33,10 +33,10 @@ def calculation_next_week(choiced_date, current_week=False):
 def congratulate(users: list):
     week_dictionaries = {"Monday": [], "Tuesday": [], "Wednesday": [], "Thursday": [], "Friday": []}
 
-    for dictionary in users:
+    for user in users:
 
-        day = dictionary["birthday"]
-        name = dictionary["name"]
+        day = user["birthday"]
+        name = user["name"]
         week_tuple = calculation_next_week(choiced_date, False)
         new_date = datetime(year=week_tuple[0].year, month=day.month, day=day.day)
 
@@ -48,9 +48,9 @@ def congratulate(users: list):
 
     congratulation_str = ""
 
-    for k, v in week_dictionaries.items():
-        if v:
-            congratulation_str += f"{k}: {', '.join(v)}\n"
+    for week_day, birth_names in week_dictionaries.items():
+        if birth_names:
+            congratulation_str += f"{week_day}: {', '.join(birth_names)}\n"
 
     if not congratulation_str:
         congratulation_str = "There are no birthday parties next week"
@@ -60,15 +60,15 @@ def congratulate(users: list):
 
 if __name__ == "__main__":
     choiced_date = choice_date(False)
-    users = [{'name': 'Masato', 'birthday': datetime(1972, 10, 26, 0, 0)},
-             {'name': 'Veta', 'birthday': datetime(1973, 10, 23, 0, 0)},
-             {'name': 'Azamat', 'birthday': datetime(1999, 10, 24, 0, 0)},
-             {'name': 'Katsuo', 'birthday': datetime(1997, 10, 25, 0, 0)},
-             {'name': 'Dzheremi', 'birthday': datetime(1997, 10, 28, 0, 0)},
-             {'name': 'Shamil', 'birthday': datetime(1964, 10, 27, 0, 0)},
-             {'name': 'Kondrat', 'birthday': datetime(1940, 10, 22, 0, 0)},
-             {'name': 'Avdotia', 'birthday': datetime(1953, 10, 21, 0, 0)},
-             {'name': 'Radoslav', 'birthday': datetime(1988, 10, 29, 0, 0)},
-             {'name': 'Alena', 'birthday': datetime(1950, 10, 29, 0, 0)}
+    users = [{'name': 'Masato', 'birthday': datetime(1972, 11, 6, 0, 0)},
+             {'name': 'Veta', 'birthday': datetime(1973, 11, 3, 0, 0)},
+             {'name': 'Azamat', 'birthday': datetime(1999, 11, 4, 0, 0)},
+             {'name': 'Katsuo', 'birthday': datetime(1997, 11, 5, 0, 0)},
+             {'name': 'Dzheremi', 'birthday': datetime(1997, 11, 8, 0, 0)},
+             {'name': 'Shamil', 'birthday': datetime(1964, 11, 7, 0, 0)},
+             {'name': 'Kondrat', 'birthday': datetime(1940, 11, 2, 0, 0)},
+             {'name': 'Avdotia', 'birthday': datetime(1953, 11, 1, 0, 0)},
+             {'name': 'Radoslav', 'birthday': datetime(1988, 10, 31, 0, 0)},
+             {'name': 'Alena', 'birthday': datetime(1950, 10, 30, 0, 0)}
              ]
     congratulate(users)

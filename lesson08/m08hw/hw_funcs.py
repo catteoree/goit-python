@@ -88,4 +88,7 @@ def make_list_birthday_dictionaries(names_list: list, years: int, month=False):
 
 
 if __name__ == "__main__":
-    print(make_list_birthday_dictionaries(make_names_list(100), 90))
+    list_users = make_list_birthday_dictionaries(make_names_list(100), 90, 11)
+    for user in list_users:
+        print("|{0[name]:<15}|{0[birthday]}|".format(user))
+
