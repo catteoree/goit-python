@@ -1,11 +1,29 @@
 class Human:
-    def __init__(self, name, age=None):
+    def __init__(self, name, age):
+        self.__name = None
+        self.__age = None
         self.name = name
         self.age = age
 
-    def __str__(self):
-        return f"Human, name: {self.name}, age: {self.age}"
+    @property
+    def name(self):
+        return f"Human, name: {self.__name}"
+
+    @property
+    def age(self):
+        return f"age: {self.__age}"
+
+    @name.setter
+    def name(self, value):
+        self.__name = value
+
+    @age.setter
+    def age(self, value):
+        value = int(value)
+        if value <= 0:
+            raise Exception("Age should be > 0")
+        self.__age = value
 
 
-bob = Human('Bob', 20)
-print(bob)
+bob = Human("Bob", "20")
+print(bob.name, bob.age)
