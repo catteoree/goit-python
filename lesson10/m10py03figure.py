@@ -36,6 +36,11 @@ class SomeFigure(Figure):
     sides = [3, 5, 3, 2, 7]
 
 
+class StrangeFigure(Figure):
+    def get_sides(self):
+        return super().get_sides()
+
+
 c = Circle()
 print(c.sides)
 print(c.radius)
@@ -49,4 +54,5 @@ sf = SomeFigure()
 print(sf.sides)
 print(sf.area())
 
-
+strange_f = StrangeFigure()
+print(strange_f.get_sides())
