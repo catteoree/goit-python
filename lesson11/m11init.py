@@ -9,5 +9,3 @@ class Human:
 
 bob = Human('Bob', 20)
 print(bob)
-
-
