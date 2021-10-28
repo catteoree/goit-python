@@ -7,7 +7,7 @@ class Human:
 
     @property
     def name(self):
-        return f"Human -- name: {self.__name}"
+        return f"Human, name: {self.__name}"
 
     @property
     def age(self):
