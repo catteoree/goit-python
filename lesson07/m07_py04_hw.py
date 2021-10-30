@@ -262,20 +262,11 @@ def to_indexed(start_file, end_file):
 # 15
 def flatten(data):
     if not data:
-        return data
-
+        return []
+    if type(data[0]) == list:
+        return flatten(data[0]) + flatten(data[1:])
     else:
-        print(data)
-
-        if type(data[0]) == list:
-            print(data)
-            print(flatten(data[0]))
-
-            return flatten(data[0]) + flatten(data[1:])
-        else:
-            print(data[0])
-
-            return [data[0]] + flatten(data[1:])
+        return [data[0]] + flatten(data[1:])
 
 
 # 16
