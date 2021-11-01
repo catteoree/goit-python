@@ -1,63 +1,146 @@
+# "Enter user name", "Give me name and phone please"
+
+exit_command = False
+PHONES_BOOK = {}
+
+
 def input_error(func):
-    try:
-        func
-    except KeyError:
-        print("KeyError")
-    except ValueError:
-        print("ValueError")
-    except IndexError:
-        print("IndexError")
+    def inner(*args):
+
+        try:
+            func(*args)
+        except KeyError:
+            print("Username isn't found. Please try again")
+        except ValueError:
+            print("ValueError")  # ???
+        except IndexError:
+            print("IndexError")  # ???
+
+    return inner
 
 
-@input_error
+def sanitize_phone_number(phone):
+    new_phone = (
+        phone.strip()
+            .removeprefix("+")
+            .replace("(", "")
+            .replace(")", "")
+            .replace("-", "")
+            .replace(" ", "")
+    )
+    return new_phone
+
+
+def is_valid_phone(phone: str):
+    def is_valid_operator(phone: str):
+        codes_operators = {"039", "067", "068", "096", "097", "098", "050", "066",
+                           "095", "099", "063", "093", "091", "092", "094"}
+        if phone[:3] in codes_operators:
+            return True
+        return False
+
+    if phone.isdigit():
+        if len(phone) == 12 and phone[:2] == "38":
+            return is_valid_operator(phone[2:])
+        if len(phone) == 10:
+            return is_valid_operator(phone)
+    return False
+
+
+def search_contact_info(command: str, user_input: str):
+    len_command = len(command) + 1
+    user_input_casefold = user_input.casefold()
+    first_i_command = user_input_casefold.find(f"{command} ")
+    string = user_input[first_i_command + len_command:]
+    last_i_user = string.find(" ")
+
+    if command == "phone":
+
+        if last_i_user == -1:
+            return string
+        else:
+            user = string[:last_i_user]
+            return user
+    else:
+        user = string[:last_i_user]
+        phone = string[last_i_user + 1:]
+        sanitized_phone = sanitize_phone_number(phone)
+        print(sanitized_phone)
+
+        if is_valid_phone(sanitized_phone):
+            print(f"{user, sanitized_phone}")
+            return user, sanitized_phone
+        else:
+            return None
+
+
 def handler_hello():
-    print("How can I help you?")
+    print(f"How can I help you?")
 
 
-def handler_exit():
-    print("Good bye!")
+def handler_show():
+    for user, phone in PHONES_BOOK.items():
+        print(f"{user}: {phone}")
 
 
 @input_error
 def handler_add_contact(user_input: str):
-    beginning_add = user_input.find("add ")
-    print(beginning_add)
-    string = user_input[beginning_add + 4:]
-    print(string)
-    last_i_user = string.find(" ")
-    user = string[:last_i_user].capitalize()
-    phone = string[last_i_user+1:]
-    print(f"User {user} with number {phone} is added successfully.")
+    contact = search_contact_info("add", user_input)
+    if contact:
+        PHONES_BOOK[contact[0]] = contact[1]
+        print(f"User {contact[0]} with phone {contact[1]} is added successfully.")
+    else:
+        print("Phone\'s number is not valid. Please try again")
+
+
+@input_error
+def handler_change(user_input: str):
+    contact = search_contact_info("change", user_input)
+    if contact:
+        print(f"Old value: {PHONES_BOOK[contact[0]]}")
+        PHONES_BOOK[contact[0]] = contact[1]
+        print(f"User {contact[0]} changed phone to {contact[1]} successfully.")
+    else:
+        print("Phone\'s number is not valid. Please try again")
+
+
+@input_error
+def handler_phone(user_input: str):
+    contact = search_contact_info("phone", user_input)
+    if contact:
+        print(PHONES_BOOK[contact])
+    else:
+        print("Incorrect name. Please try again")
+
+
+def handler_exit():
+    global exit_command
+    print("Good bye!")
+    exit_command = True
+
+
+COMMANDS = {"hello": handler_hello,
+            "add": handler_add_contact,
+            "change": handler_change,
+            "phone": handler_phone,
+            "show all": handler_show,
+            "good bye": handler_exit,
+            "exit": handler_exit,
+            "close": handler_exit
+            }
 
 
 def bot():
-    while True:
+    while not exit_command:
         user_input = input(": ")
-        user_input = user_input.casefold()
+        user_input_casefold = user_input.casefold()
 
-        if "hello" in user_input:
-            handler_hello()
-            continue
-
-        if "add" in user_input:
-            handler_add_contact(user_input)
-            continue
-
-        if "change" in user_input:
-            handler_add_contact(user_input)
-            continue
-
-        if "phone" in user_input:
-            handler_add_contact(user_input)
-            continue
-
-        if "show all" in user_input:
-            handler_add_contact(user_input)
-            continue
-
-        if "good bye" or "exit" or "close" or "." in user_input:
-            handler_exit()
-            break
+        for command in COMMANDS:
+            if command in user_input_casefold:
+                try:
+                    COMMANDS[command]()
+                except TypeError:
+                    COMMANDS[command](user_input)
 
 
 if __name__ == "__main__":

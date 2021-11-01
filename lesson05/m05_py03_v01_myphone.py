@@ -22,7 +22,7 @@ def _is_valid_phone(phone):
             else:
                 return False
         else:
-            False
+            return False
     if len(phone) == 10:
         if phone[:3] in codes_operators:
             return True
