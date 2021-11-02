@@ -6,17 +6,21 @@ PHONES_BOOK = {}
 
 def input_error(func):
     def inner(*args):
+        print(args)
 
         try:
             func(*args)
         except KeyError:
-            print("Username isn't found. Please try again")
+            print("Name not found. Please try again")
         except ValueError:
             print("ValueError")  # ???
         except IndexError:
             print("IndexError")  # ???
-
+        else:
+            return func(*args)
+    
     return inner
+
 
 
 def sanitize_phone_number(phone):
@@ -47,6 +51,7 @@ def is_valid_phone(phone: str):
     return False
 
 
+@input_error
 def search_contact_info(command: str, user_input: str):
     len_command = len(command) + 1
     user_input_casefold = user_input.casefold()
@@ -65,10 +70,8 @@ def search_contact_info(command: str, user_input: str):
         user = string[:last_i_user]
         phone = string[last_i_user + 1:]
         sanitized_phone = sanitize_phone_number(phone)
-        print(sanitized_phone)
 
         if is_valid_phone(sanitized_phone):
-            print(f"{user, sanitized_phone}")
             return user, sanitized_phone
         else:
             return None
@@ -83,34 +86,26 @@ def handler_show():
         print(f"{user}: {phone}")
 
 
-@input_error
 def handler_add_contact(user_input: str):
     contact = search_contact_info("add", user_input)
-    if contact:
-        PHONES_BOOK[contact[0]] = contact[1]
-        print(f"User {contact[0]} with phone {contact[1]} is added successfully.")
-    else:
-        print("Phone\'s number is not valid. Please try again")
+    PHONES_BOOK[contact[0]] = contact[1]
+    print(f"User {contact[0]} with phone {contact[1]} is added successfully.")
+    # else:
+    #     print("Phone\'s number is not valid. Please try again")
 
 
-@input_error
 def handler_change(user_input: str):
     contact = search_contact_info("change", user_input)
-    if contact:
-        print(f"Old value: {PHONES_BOOK[contact[0]]}")
-        PHONES_BOOK[contact[0]] = contact[1]
-        print(f"User {contact[0]} changed phone to {contact[1]} successfully.")
-    else:
-        print("Phone\'s number is not valid. Please try again")
+    print(f"Old value: {PHONES_BOOK[contact[0]]}")
+    PHONES_BOOK[contact[0]] = contact[1]
+    print(f"User {contact[0]} changed phone to {contact[1]} successfully.")
+    # else:
+    #     print("Phone\'s number is not valid. Please try again")
 
 
-@input_error
 def handler_phone(user_input: str):
     contact = search_contact_info("phone", user_input)
-    if contact:
-        print(PHONES_BOOK[contact])
-    else:
-        print("Incorrect name. Please try again")
+    print(PHONES_BOOK[contact])
 
 
 def handler_exit():
@@ -119,18 +114,17 @@ def handler_exit():
     exit_command = True
 
 
-COMMANDS = {"hello": handler_hello,
-            "add": handler_add_contact,
-            "change": handler_change,
-            "phone": handler_phone,
-            "show all": handler_show,
-            "good bye": handler_exit,
-            "exit": handler_exit,
-            "close": handler_exit
-            }
-
-
 def bot():
+    COMMANDS = {"hello": handler_hello,
+                "add": handler_add_contact,
+                "change": handler_change,
+                "phone": handler_phone,
+                "show all": handler_show,
+                "good bye": handler_exit,
+                "exit": handler_exit,
+                "close": handler_exit
+                }
+
     while not exit_command:
         user_input = input(": ")
         user_input_casefold = user_input.casefold()
