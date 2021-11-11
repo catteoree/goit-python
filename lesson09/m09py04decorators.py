@@ -47,7 +47,6 @@ def makeupper(fn):
         res = "<u>" + fn(val.upper()) + "</u>"
         print(f"Makeupper: {fn}, {val}")
         return res
-
     return wrapped
 
 
@@ -57,7 +56,6 @@ def makebold(fn):
         res = "<b>" + fn(val) + "</b>"
         print(f"Makebold: {fn}, {val}")
         return res
-
     return wrapped
 
 
@@ -67,7 +65,6 @@ def makeitalic(fn):
         res = "<i>" + fn(val) + "</i>"
         print(f"Makeitalic: {fn}, {val}")
         return res
-
     return wrapped
 
 
