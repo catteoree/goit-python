@@ -1,9 +1,12 @@
-exit_command = False
+import functools
+
+
 PHONES_BOOK = {}
 
 
 def input_error(func):
-    def inner(*args):
+    @functools.wraps(func)
+    def wrapped(*args):
 
         try:
             return func(*args)
@@ -21,7 +24,7 @@ def input_error(func):
         except IndexError:
             print("Phone number is not correct or not entered.")
 
-    return inner
+    return wrapped
 
 
 def search_phone(string):
@@ -92,8 +95,11 @@ def handler_hello():
 
 
 def handler_show():
-    for user, phone in PHONES_BOOK.items():
-        print(f"{user}: {phone}")
+    if not PHONES_BOOK:
+        print("Records not found.")
+    else:
+        for user, phone in PHONES_BOOK.items():
+            print(f"{user}: {phone}")
 
 
 def handler_add_and_change(command: str, user_input: str):
@@ -118,23 +124,25 @@ def handler_phone(command: str, user_input: str):
 
 
 def handler_exit():
-    global exit_command
     print("Good bye!")
-    exit_command = True
+
+
+COMMANDS = {
+    "hello": handler_hello,
+    "add": handler_add_and_change,
+    "change": handler_add_and_change,
+    "phone": handler_phone,
+    "show all": handler_show,
+    "good bye": handler_exit,
+    "exit": handler_exit,
+    "close": handler_exit
+}
 
 
 def main():
-    COMMANDS = {"hello": handler_hello,
-                "add": handler_add_and_change,
-                "change": handler_add_and_change,
-                "phone": handler_phone,
-                "show all": handler_show,
-                "good bye": handler_exit,
-                "exit": handler_exit,
-                "close": handler_exit
-                }
+    command = "wait"
 
-    while not exit_command:
+    while command not in ("good bye", "exit", "close"):
         user_input = input(": ")
         user_input_casefold = user_input.casefold()
         no_command = True
@@ -146,8 +154,10 @@ def main():
                     COMMANDS[command](command, user_input)
                 else:
                     COMMANDS[command]()
+                break
 
         if no_command:
+            command = "wait"
             print("You didn\'t enter any command. I wait for your commands.")
 
 

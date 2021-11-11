@@ -42,6 +42,7 @@ def _hello(word):
 
 
 def makeupper(fn):
+    @functools.wraps(fn)
     def wrapped(val):
         res = "<u>" + fn(val.upper()) + "</u>"
         print(f"Makeupper: {fn}, {val}")
@@ -51,6 +52,7 @@ def makeupper(fn):
 
 
 def makebold(fn):
+    @functools.wraps(fn)
     def wrapped(val):
         res = "<b>" + fn(val) + "</b>"
         print(f"Makebold: {fn}, {val}")
@@ -60,6 +62,7 @@ def makebold(fn):
 
 
 def makeitalic(fn):
+    @functools.wraps(fn)
     def wrapped(val):
         res = "<i>" + fn(val) + "</i>"
         print(f"Makeitalic: {fn}, {val}")
@@ -79,6 +82,5 @@ if __name__ == "__main__":
     # hello = makeupper(makebold(makeitalic(hello)))
     # print(_hello("Kostia"))
     print(hello("go it"))
-
-
-
+    print(help(_hello))
+    print(help(hello))
