@@ -150,10 +150,12 @@ def main():
         for command in COMMANDS:
             if command in user_input_casefold:
                 no_command = False
+                command_handler = COMMANDS[command]
+
                 if command in ("add", "change", "phone"):
-                    COMMANDS[command](command, user_input)
+                    command_handler(command, user_input)
                 else:
-                    COMMANDS[command]()
+                    command_handler()
                 break
 
         if no_command:
