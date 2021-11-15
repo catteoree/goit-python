@@ -1,46 +1,5 @@
 import functools
-from collections import UserDict
 
-
-class AddressBook(UserDict):
-    def add_record(self, record):
-        pass
-
-
-class Record:
-    def __init__(self, name, **kwargs):
-        self.name = name
-        self.info = kwargs
-
-    def add_field(self):
-        pass
-
-    def delete_field(self):
-        pass
-
-    def edit_field(self):
-        pass
-
-
-class Field:
-    pass
-
-
-class Name(Field):
-    def __init__(self, value):
-        self.value = value
-
-
-class Phone(Field):
-    def __init__(self, number):
-        self.number = number
-
-    def print_phone(self):
-        print(f"My number is {self.number}")
-
-
-phone = Phone("+38(050)500-50-50")
-phone.print_phone()
 
 PHONES_BOOK = {}
 
