@@ -1,5 +1,46 @@
 import functools
+from collections import UserDict
 
+
+class AddressBook(UserDict):
+    def add_record(self, record):
+        pass
+
+
+class Record:
+    def __init__(self, name, **kwargs):
+        self.name = name
+        self.info = kwargs
+
+    def add_field(self):
+        pass
+
+    def delete_field(self):
+        pass
+
+    def edit_field(self):
+        pass
+
+
+class Field:
+    pass
+
+
+class Name(Field):
+    def __init__(self, value):
+        self.value = value
+
+
+class Phone(Field):
+    def __init__(self, number):
+        self.number = number
+
+    def print_phone(self):
+        print(f"My number is {self.number}")
+
+
+phone = Phone("+38(050)500-50-50")
+phone.print_phone()
 
 PHONES_BOOK = {}
 
@@ -14,7 +55,7 @@ def input_error(func):
             print("User name not found. Please try again.")
         except ValueError:
             if args[0] == "phone":
-                pass
+                """Incorrect response status"""
 
             elif args[0] == "change":
                 print("Give me user name and new phone please.")
@@ -27,7 +68,7 @@ def input_error(func):
     return wrapped
 
 
-def search_phone(string):
+def search_phone(string: str):
     phone = ""
 
     for i in string:
@@ -39,7 +80,7 @@ def search_phone(string):
     return phone
 
 
-def sanitize_phone_number(phone):
+def sanitize_phone_number(phone: str):
     new_phone = (
             phone.strip()
             .removeprefix("+38")
@@ -105,7 +146,7 @@ def handler_show():
 def handler_add_and_change(command: str, user_input: str):
     info = search_contact_info(command, user_input)
     if not info:
-        pass
+        """Incorrect response status"""
     elif command == "change" and info[0] in PHONES_BOOK:
         phone_old_value = PHONES_BOOK[info[0]]
         PHONES_BOOK[info[0]] = info[1]
@@ -135,7 +176,7 @@ COMMANDS = {
     "show all": handler_show,
     "good bye": handler_exit,
     "exit": handler_exit,
-    "close": handler_exit
+    "close": handler_exit,
 }
 
 
