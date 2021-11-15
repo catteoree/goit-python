@@ -71,18 +71,20 @@ js_dev.make_some_code()  # My Programming language is JavaScript
 
 
 class GrandA:
-    gizmo = "alpha"
+    grand = "alpha"
 
 
 class GrandB:
-    gizmo = "beta"
+    grand = "beta"
 
 
 class A(GrandA):
+    # grand = 'I am grand from A'
     x = 'I am A class'
 
 
 class B(GrandB):
+    grand = 'I am grand from B'
     x = 'I am B class'
     y = 'I exist only in B'
 
@@ -97,8 +99,12 @@ class D(A, B):
 
 c = C()
 d = D()
-print(c.z)  # This exists only in C
+print(f'{C.__mro__}: ')
+print(f'{c.z}')  # This exists only in C
 print(c.y)  # I exist only in B
 print(c.x)  # I am B class
-print(c.gizmo)  # beta
-print(d.gizmo)  # alpha
+print(c.grand)  # beta
+print(f'{D.__mro__}: ')
+print(d.y)  # I exist only in B
+print(d.x)  # I am B class
+print(d.grand)  # alpha
