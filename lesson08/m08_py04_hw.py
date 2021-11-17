@@ -102,6 +102,20 @@
 
 
 # 7
+import collections
+
+Cat = collections.namedtuple("Cat", ["nickname", "age", "owner"])
+
+
+def convert_list(cats):
+    result = []
+    for cat in cats:
+        if isinstance(cat, tuple):
+            result.append(cat._asdict())
+        elif isinstance(cat, dict):
+            result.append(Cat(**cat))
+
+    return result
 
 
 # 8
