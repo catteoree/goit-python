@@ -64,14 +64,16 @@ class Record:
     def add_field(self, field: Field):
         if field.name not in self.record_name:
             self.record_name[field.name] = field.value
-            return f'Field with name \"{field.name}\" and \"{field.value}\" is added successfully'
+            return f'Field with name \"{field.name}\" ' \
+                   f'and \"{field.value}\" is added successfully'
         else:
             return f'This field with name \"{field.name}\" exists.'
 
     def delete_field(self, field: Field):
         if field.name in self.record_name:
             self.record_name.pop(field.name)
-            return f'Field with name: \"{field.name}\" and value: \"{field.value}\" is deleted successfully'
+            return f'Field with name: \"{field.name}\" ' \
+                   f'and value: \"{field.value}\" is deleted successfully'
         else:
             return f'This field with name \"{field.name}\" not exist.'
 
@@ -79,7 +81,8 @@ class Record:
         if field.name in self.record_name:
             old_value = self.record_name[field.name]
             self.record_name[field.name] = field.value
-            return f'Field with name: \"{field.name}\" and old value: \"{old_value}\" changed to \"{field.value}\" successfully'
+            return f'Field with name: \"{field.name}\" and old value: ' \
+                   f'\"{old_value}\" changed to \"{field.value}\" successfully'
         else:
             return f'This field with name \"{field.name}\" not exist.'
 
@@ -89,7 +92,8 @@ class AddressBook(UserDict):
         if record.name.value in self.data:
             return f'Record with name: \"{record.name.value}\" exists.'
         self.data[record.name.value] = record.value
-        return f'Record with name: \"{record.name.value}\" and value: \"{record.value}\" is added successfully'
+        return f'Record with name: \"{record.name.value}\" ' \
+               f'and value: \"{record.value}\" is added successfully'
 
 
 def main():
@@ -97,8 +101,8 @@ def main():
     f = Field('new_phone', '0501234566')
     f2 = Field('only_name')
     new_f2 = Field('only_name', 'not_only_name', pet='cat')
-    new_f3 = Field('it\'s', test='arguments', email='alpha@root.com')
-    new_f3_empty = Field('it\'s')
+    new_f3 = Field("it\'s", test='arguments', email='alpha@root.com')
+    new_f3_empty = Field("it\'s")
     n1 = Name('Vasyl')
     n2 = Name('Ryan')
     ph1 = Phone('0503453434',
@@ -109,7 +113,7 @@ def main():
                 '0458465913')
     ph_error = Phone('0335005050', name='error')
     ph3 = Phone('0953453434', name='very_strange_and_long_name')
-    f3 = Field('it\'s', 'only', 'different', [1, 2], (123, 'others'), ph3)
+    f3 = Field("it\'s", 'only', 'different', [1, 2], (123, 'others'), ph3)
     r = Record(n1, ph1, email='user@root.com')
     r2 = Record(n2, ph2)
 
@@ -120,23 +124,33 @@ def main():
     r.add_field(f)
     r.add_field(f2)
     r.add_field(f3)
-    print(f'AddressBook with record \"{r.name.value}\" ==> {a}')
-    print(f'Record \"{r2.name.value}\" added field \"{f}\" ==> {r2.add_field(f)}')
+    print(f'AddressBook with record '
+          f'\"{r.name.value}\" ==> {a}')
+    print(f'Record \"{r2.name.value}\" '
+          f'added field \"{f}\" ==> {r2.add_field(f)}')
     r2.add_field(f2)
-    print(f'AddressBook added record \"{r2.name.value}\" ==> {a.add_record(r2)}')
-    print(f'AddressBook added record \"{r2.name.value}\" (repeat) ==> {a.add_record(r2)}')
+    print(f'AddressBook added record '
+          f'\"{r2.name.value}\" ==> {a.add_record(r2)}')
+    print(f'AddressBook added record '
+          f'\"{r2.name.value}\" (repeat) ==> {a.add_record(r2)}')
     print(f'AddressBook: {a}')
-    print(f'Edit record \"{r2.name.value}\" to \"{new_f2}\" ==> {r2.edit_field(new_f2)}')
-    print(f'After edit record \"{r2.name.value}\" to \"{new_f2}\" ==> {a}')
+    print(f'Edit record \"{r2.name.value}\" '
+          f'to \"{new_f2}\" ==> {r2.edit_field(new_f2)}')
+    print(f'After edit record \"{r2.name.value}\" '
+          f'to \"{new_f2}\" ==> {a}')
 
     print('\n{:*^30}\n'.format(' first part end '))
 
     print(f'Delete \"{f2}\" ==>  {r2.delete_field(f2)}')
     print(f'After delete \"{f2}\" ==> {a}')
-    print(f'Edit record \"{r.name.value}\" to \"{new_f3}\" ==> {r.edit_field(new_f3)}')
-    print(f'After edit  record \"{r.name.value}\" to \"{new_f3}\" ==> {a}')
-    print(f'Delete \"{new_f3_empty}\" ==> {r.delete_field(new_f3_empty)}')
-    print(f'Delete with error in \"{r.name.value}\" field \"{ph_error}\" ==> {r.delete_field(ph_error)}')
+    print(f'Edit record \"{r.name.value}\" to '
+          f'\"{new_f3}\" ==> {r.edit_field(new_f3)}')
+    print(f'After edit  record \"{r.name.value}\" '
+          f'to \"{new_f3}\" ==> {a}')
+    print(f'Delete \"{new_f3_empty}\" '
+          f'==> {r.delete_field(new_f3_empty)}')
+    print(f'Delete with error in \"{r.name.value}\" '
+          f'field \"{ph_error}\" ==> {r.delete_field(ph_error)}')
     print(f'After delete \"{new_f3_empty}\" ==> {a}')
     print('\n{:*^30}\n'.format(' last part end '))
 
