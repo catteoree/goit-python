@@ -1,34 +1,4 @@
-import functools
 from collections import UserDict
-
-
-def sanitize_phone_number(phone: str):
-    new_phone = (
-        phone.strip()
-             .removeprefix('+')
-             .removeprefix('3')
-             .removeprefix('8')
-             .replace('(', '')
-             .replace(')', '')
-             .replace('-', '')
-             .replace(' ', '')
-    )
-    return new_phone
-
-
-def is_valid_phone(phone: str):
-    def is_valid_operator(phone: str):
-        codes_operators = {'039', '067', '068', '096', '097',
-                           '098', '050', '066', '095', '099',
-                           '063', '093', '091', '092', '094'}
-        if phone[:3] in codes_operators:
-            return True
-        return False
-
-    if phone.isdigit():
-        if len(phone) == 10:
-            return is_valid_operator(phone)
-    return False
 
 
 class Field:
@@ -60,22 +30,12 @@ class Name(Field):
 class Phone(Field):
     def __init__(self, *args, name='phone'):
         super().__init__(name, *args)
-        phones = []
+        phones = list(args)
 
-        if len(args) > 1:
-
-            for phone in self.value:
-                phone = sanitize_phone_number(phone)
-
-                if is_valid_phone(phone):
-                    phones.append(phone)
-        else:
-            phones.append(self.value)
-
-        if len(phones) == 1:
-            self.value = phones[0]
-        else:
+        if len(phones) > 1:
             self.value = phones
+        else:
+            self.value = phones[0]
 
 
 class Record:
