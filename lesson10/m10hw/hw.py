@@ -3,7 +3,7 @@ from collections import UserDict
 
 class Field:
     def __init__(self, name, *args, **kwargs):
-        if type(name) == Name:
+        if isinstance(name, Name):
             self.name = name.value
         else:
             self.name = name
