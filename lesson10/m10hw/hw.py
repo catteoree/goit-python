@@ -116,9 +116,7 @@ def main():
     f3 = Field("it\'s", 'only', 'different', [1, 2], (123, 'others'), ph3)
     r = Record(n1, ph1, email='user@root.com')
     r2 = Record(n2, ph2)
-
     print('\n{:*^30}\n'.format(' begin '))
-
     print(f'Record \"{r.name.value}\" ==> {r}')
     a.add_record(r)
     r.add_field(f)
@@ -138,9 +136,7 @@ def main():
           f'to \"{new_f2}\" ==> {r2.edit_field(new_f2)}')
     print(f'After edit record \"{r2.name.value}\" '
           f'to \"{new_f2}\" ==> {a}')
-
     print('\n{:*^30}\n'.format(' first part end '))
-
     print(f'Delete \"{f2}\" ==>  {r2.delete_field(f2)}')
     print(f'After delete \"{f2}\" ==> {a}')
     print(f'Edit record \"{r.name.value}\" to '
