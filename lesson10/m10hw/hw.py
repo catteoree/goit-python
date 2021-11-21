@@ -39,21 +39,14 @@ class Phone(Field):
 
 
 class Record:
-    def __init__(self, name: Name, phone=None, **kwargs):
+    def __init__(self, name: Name, phone=None):
         self.name = name
         self.value = None
         self.data = {}
 
-        if phone and kwargs:
-            self.value = kwargs
-            self.value[phone.name] = phone.value
-
-        elif phone:
+        if phone:
             self.value = {}
             self.value[phone.name] = phone.value
-
-        elif kwargs:
-            self.value = kwargs
 
         self.data[self.name.value] = self.value
         self.record_name = self.data[self.name.value]
@@ -112,11 +105,15 @@ def main():
     ph2 = Phone('0503453434',
                 '0458465913')
     ph_error = Phone('0335005050', name='error')
+    ph_email = Phone('user@root.com', name='email')
     ph3 = Phone('0953453434', name='very_strange_and_long_name')
     f3 = Field("it\'s", 'only', 'different', [1, 2], (123, 'others'), ph3)
-    r = Record(n1, ph1, email='user@root.com')
+    r = Record(n1, ph1)
     r2 = Record(n2, ph2)
+    r2.add_field(ph_email)
+
     print('\n{:*^30}\n'.format(' begin '))
+
     print(f'Record \"{r.name.value}\" ==> {r}')
     a.add_record(r)
     r.add_field(f)
@@ -136,7 +133,9 @@ def main():
           f'to \"{new_f2}\" ==> {r2.edit_field(new_f2)}')
     print(f'After edit record \"{r2.name.value}\" '
           f'to \"{new_f2}\" ==> {a}')
+
     print('\n{:*^30}\n'.format(' first part end '))
+
     print(f'Delete \"{f2}\" ==>  {r2.delete_field(f2)}')
     print(f'After delete \"{f2}\" ==> {a}')
     print(f'Edit record \"{r.name.value}\" to '
@@ -148,6 +147,7 @@ def main():
     print(f'Delete with error in \"{r.name.value}\" '
           f'field \"{ph_error}\" ==> {r.delete_field(ph_error)}')
     print(f'After delete \"{new_f3_empty}\" ==> {a}')
+
     print('\n{:*^30}\n'.format(' last part end '))
 
 
